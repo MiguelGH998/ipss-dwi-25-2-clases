@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\PagosController;
 
 Route::get('/', function () {
     return view('landing/index');
@@ -38,3 +39,10 @@ Route::post('/backoffice/cargos/down/{_id}', [CargosController::class, 'down'])-
 Route::post('/backoffice/cargos/up/{_id}', [CargosController::class, 'up'])->name('backoffice.cargos.up');
 Route::post('/backoffice/cargos/destroy/{_id}', [CargosController::class, 'destroy'])->name('backoffice.cargos.destroy');
 
+Route::get('/backoffice/pagos', [PagosController::class, 'index'])->name('backoffice.pagos.index');
+Route::post('/backoffice/pagos', [PagosController::class, 'store'])->name('backoffice.pagos.new');
+Route::get('/backoffice/pagos/{_id}', [PagosController::class, 'show'])->name('backoffice.pagos.show');
+Route::get('/backoffice/pagos/{_id}/edit', [PagosController::class, 'edit'])->name('backoffice.pagos.edit');
+Route::post('/backoffice/pagos/down/{_id}', [PagosController::class, 'down'])->name('backoffice.pagos.down');
+Route::post('/backoffice/pagos/up/{_id}', [PagosController::class, 'up'])->name('backoffice.pagos.up');
+Route::post('/backoffice/pagos/destroy/{_id}', [PagosController::class, 'destroy'])->name('backoffice.pagos.destroy');

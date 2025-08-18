@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;  // Importar la fachada Hash
 use Illuminate\Validation\Rules\Password;  // Importar la clase Password
+use Illuminate\Support\Facades\Validator;  // Importar Validator
 
 class UserController extends Controller
 {
@@ -188,7 +189,7 @@ class UserController extends Controller
             'user' => $user
         ];
 
-        return view('backoffice/users/contact', $datos);
+        return view('backoffice/users/contact',['datos' => $datos],  ['user' => $user]);
 
 
     }
