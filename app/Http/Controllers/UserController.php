@@ -193,6 +193,86 @@ class UserController extends Controller
 
 
     }
+
+    public function actualizarContacto(Request $request)
+    {
+        if (!Auth::check()) {
+            // Verifica si el el usuario ya está autenticado
+            return redirect()->route('/')->withErrors('Error: No tiene una sesión iniciada.');
+        }
+        $request->validate([
+            'email'     => ['required', 'email', 'max:255'],
+            'phone'     => ['required', 'string', 'max:20'],
+            'address'   => ['nullable', 'string', 'max:255'],
+            'facebook'  => ['nullable', 'url', 'max:255'],
+            'twitter'   => ['nullable', 'url', 'max:255'],
+            'instagram' => ['nullable', 'url', 'max:255'],
+            'linkedin'  => ['nullable', 'url', 'max:255'],
+        ]);
+
+        $user = Auth::user();
+
+        $user->update([
+            'email'     => $request->email,
+            'phone'     => $request->phone,
+            'address'   => $request->address,
+            'facebook'  => $request->facebook,
+            'twitter'   => $request->twitter,
+            'instagram' => $request->instagram,
+            'linkedin'  => $request->linkedin,
+        ]);
+
+        $user->save();
+        
+        $datos = [
+            'textos' => [
+                'titulo' => 'Mantenedor Contacto | Sonkei FC',
+                'logo' => '/assets/imgs/logo_sonkei_v2.webp',
+                'nombre' => 'Sonkei FC',
+                'formulario' => [
+                    'titulo' => 'Registro Sonkei FC ⚽️',
+                    'instruccion' => 'Ingrese sus datos para registrarse en el sistema'
+                ],
+            ],
+            'dev' => [
+                'nombre' => 'Instituto Profesional San Sebastián',
+                'url' => 'https://www.ipss.cl',
+                'logo' => 'https://ipss.cl/wp-content/uploads/2025/04/cropped-LogoIPSS_sello50anos_webipss.png'
+            ],
+            'user' => $user
+        ];
+        
+    $campos = [
+        [
+            'label' => 'Nombre',
+            'name' => 'nombre',
+            'control' => [
+                'element' => 'input',
+                'type' => 'text',
+                'classList' => ['form-control'],
+                'min' => 3,
+                'max' => 50,
+                'placeholder' => 'Ingrese su nombre'
+            ]
+        ],
+        [
+            'label' => 'Correo',
+            'name' => 'email',
+            'control' => [
+                'element' => 'input',
+                'type' => 'email',
+                'classList' => ['form-control'],
+                'min' => 5,
+                'max' => 100,
+                'placeholder' => 'usuario@ejemplo.com'
+            ]
+        ]
+    ];
+
+
+        return back()->with('success', 'Información de contacto actualizada correctamente ✅', ['datos' => $datos],  ['user' => $user], ['datos' => $datos]);
+    }
+
     
     public function showSeguridad(){
         if (!Auth::check()) {

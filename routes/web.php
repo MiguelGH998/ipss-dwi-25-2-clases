@@ -22,6 +22,8 @@ Route::post('/backoffice/create-user', [UserController::class, 'guardarNuevo'])-
 
 Route::get('/backoffice/user/profile', [UserController::class, 'showPerfil'])->name('backoffice.user.profile');
 Route::get('/backoffice/user/contact', [UserController::class, 'showContacto'])->name('backoffice.user.contact');
+Route::post('/backoffice/user/contact', [UserController::class, 'actualizarContacto'])->name('backoffice.user.contact.update');
+
 Route::get('/backoffice/user/security', [UserController::class, 'showSeguridad'])->name('backoffice.user.security');
 Route::post('/backoffice/user/security', [UserController::class, 'cambiarClave'])->name('backoffice.user.security.changePass');
 

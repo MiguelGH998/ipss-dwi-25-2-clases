@@ -111,64 +111,8 @@
               <!--/ Navbar pills -->
 
               <!-- User Profile Content -->
-              <div class="row">
-                <div class="col-xl-4 col-lg-5 col-md-5">
-                  <!-- About User -->
-                  <div class="card mb-6">
-                    <h5 class="card-header">Contact Information</h5>
-                    <div class="card-body">
-                      <div class="info-container">
-                        <ul class="list-unstyled mb-4">
-                          <li class="mb-2">
-                            <span class="fw-semibold me-1">Email:</span>
-                            <span>user.email@example.com</span>
-                          </li>
-                          <li class="mb-2">
-                            <span class="fw-semibold me-1">Phone:</span>
-                            <span>+1 (123) 456-7890</span>
-                          </li>
-                          <li class="mb-0">
-                            <span class="fw-semibold me-1">Address:</span>
-                            <span>123 Main St, Anytown, USA</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="card-footer">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalContacto">Editar Info</button>
-                    </div>
-                  </div>
-                  <!--/ About User -->
+              @include('backoffice/_partials/modal')
 
-                  <!-- Social Media Links -->
-                  <div class="card mb-6">
-                    <h5 class="card-header">Social Media</h5>
-                    <div class="card-body">
-                      <div class="info-container">
-                        <ul class="list-unstyled mb-0">
-                          <li class="mb-2">
-                            <span class="fw-semibold me-1">Facebook:</span>
-                            <a href="https://www.facebook.com/username" target="_blank">facebook.com/username</a>
-                          </li>
-                          <li class="mb-2">
-                            <span class="fw-semibold me-1">Twitter:</span>
-                            <a href="https://twitter.com/username" target="_blank">twitter.com/username</a>
-                          </li>
-                          <li class="mb-2">
-                            <span class="fw-semibold me-1">Instagram:</span>
-                            <a href="https://www.instagram.com/username" target="_blank">instagram.com/username</a>
-                          </li>
-                          <li class="mb-0">
-                            <span class="fw-semibold me-1">LinkedIn:</span>
-                            <a href="https://www.linkedin.com/in/username" target="_blank">linkedin.com/in/username</a>
-                          </li>
-                        </ul>
-                      </div>
-                     
-                  </div>
-                  <!--/ About User -->
-                </div>
-                <div class="col-xl-8 col-lg-7 col-md-7">
                   <!-- Activity Timeline -->
 
               <!--/ User Profile Content -->
